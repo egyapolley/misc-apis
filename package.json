@@ -1,0 +1,22 @@
+{
+  "name": "misc-apis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "route.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "helmet": "^4.6.0",
+    "mysql2": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.1"
+  }
+}
