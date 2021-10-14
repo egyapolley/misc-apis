@@ -29,9 +29,24 @@ async function getDBInfo(msisdn) {
         password: process.env.DB_PASS
     })
     // query database
-    const [rows] = await connection.execute('SELECT * FROM activationsEDR WHERE msisdn = ?', [msisdn]);
-    await connection.destroy()
-    return rows.length > 0
+    try {
+        const [rows] = await connection.execute('SELECT * FROM activationsEDR WHERE msisdn = ?', [msisdn]);
+        await connection.destroy()
+        return rows.length > 0
+    } catch (ex) {
+        console.log(ex)
+        return  false
+    } finally {
+        try {
+            if (connection){
+                await connection.destroy()
+            }
+
+        }catch (ex){
+            console.log(ex)
+        }
+    }
+
 
 }
 
