@@ -30,6 +30,7 @@ async function getDBInfo(msisdn) {
     })
     // query database
     const [rows] = await connection.execute('SELECT * FROM activationsEDR WHERE msisdn = ?', [msisdn]);
+    await connection.destroy()
     return rows.length > 0
 
 }
